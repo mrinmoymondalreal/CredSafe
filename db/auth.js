@@ -10,7 +10,6 @@ mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongo
 
 async function checkUserExists(doc){
     var resp =  await web.findOne({ user_id: doc.user_id });
-
     
     if(resp == null) return 0;
     

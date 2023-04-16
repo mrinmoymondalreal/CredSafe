@@ -3,6 +3,7 @@ const { checkUserExists, saveQR } = require("../db/auth");
 
 async function generateQR(doc, website_name, device_id, type){
     var f = await checkUserExists(doc);
+    // console.log(f);
     return new Promise(res=>{
         if(f == 0){res({status: 400, msg: "Error Occured"});}
         else{
