@@ -5,8 +5,7 @@ const bcrypt = require("bcrypt");
 const web = mongoose.model('website');
 const User = require("../models/Users");
 
-
-await mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongodb.net/credsafe');
+mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongodb.net/credsafe');
 async function reWeb(doc){
     var newWeb = new website(doc);
     newWeb.save();
