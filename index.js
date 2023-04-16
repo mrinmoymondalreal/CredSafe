@@ -9,7 +9,7 @@ var cors = require('cors');
 
 const app = express();
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 var allowlist = ['http://localhost:8000', 'http://localhost:2000']
 var corsOptionsDelegate = function (req, callback) {
@@ -80,6 +80,10 @@ app.post("/l/getQR", async (req, res)=>{
         res.send({ status: 500, msg: "Internal Server Error" })
     }
 });
+
+app.get("/d/credsafe", (req, res)=>{
+    res.download(path.join(__dirname, "app/credsafe_android.apk"));
+})
 
 app.listen(PORT, ()=>{
     console.log(`Server Listening on http://localhost:${PORT}`);
