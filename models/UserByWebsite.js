@@ -8,4 +8,4 @@ const mySchema = new Schema({
     linked_app_id: { type: String, required: true },
 });
 
-module.exports = mongoose.model('userDetails', mySchema);
+module.exports = mongoose.model('UserByWebsite', mySchema);
