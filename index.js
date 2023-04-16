@@ -191,7 +191,7 @@ io.on('connection', (socket) => {
       // }
     }
     // console.log(d);
-  })
+  });
 
   socket.on("user_signup", async (d)=>{
     var resp = await addUser({ id: d.data });
