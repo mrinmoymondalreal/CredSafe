@@ -69,7 +69,7 @@ app.get("/getQR", (req, res)=>{
 
 app.post("/r/getQR", async (req, res)=>{
     const { user_id, password, device_id } = req.body;
-    var resp = await generateQR({ user_id, password }, req.header("Origin"), user_id, "register");
+    var resp = await generateQR({ user_id, password }, req.header("Origin"), device_id, "register");
     // console.log(req.header("Origin"), device_id)
     try{
         res.send(resp);
