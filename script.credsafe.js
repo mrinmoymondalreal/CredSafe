@@ -3,7 +3,7 @@
   const screen = document.querySelector(".scr"),
         loading = document.querySelector(".loading"),
         loadingText = document.querySelector(".loading-text");
-  const conn = "http://localhost:8000/credsafe_script";
+  const conn = "https://credsafe.server.mrinmoymondal.ml";
   function initScript(callback){
     const script= document.createElement("script");
     script.src = `${conn}/socket.io/socket.io.js`;
