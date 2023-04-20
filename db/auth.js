@@ -9,13 +9,9 @@ const QRModel = require("../models/QRre");
 mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongodb.net/credsafe');
 
 async function checkUserExists(doc){
-    var resp =  await web.findOne({ user_id: doc.user_id });
-    
+    var resp =  await website.findOne({ user_id: doc.token });
     if(resp == null) return 0;
-    
-    var compare = await bcrypt.compare(doc.password, resp.password);
-    if(!compare) return 0;
-    
+    if(!(doc.origin == resp.web_url)) return 2;
     return 1;
 }
 
@@ -40,6 +36,14 @@ async function findQR_d(qr_data){
     return f;
 }
 
+async function checkUserByWebsite(id, url){
+    var resp = await userDetails.findOne({ user_id: id });
+    console.log(resp, url, id);
+    if(resp == null) return 0;
+    if(resp.web_url == url) return 1;
+    return 0;
+}
+
 
 // checkUserExists()
 
@@ -48,5 +52,6 @@ module.exports = {
     saveQR,
     findQR,
     findUser,
-    findQR_d
+    findQR_d,
+    checkUserByWebsite
 }
