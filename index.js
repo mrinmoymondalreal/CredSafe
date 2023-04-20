@@ -19,8 +19,8 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
 
-// var allowlist = JSON.parse(process.env.ALLOW_LIST);
-var allowlist = ['http://localhost:2000'];
+var allowlist = JSON.parse(process.env.ALLOW_LIST);
+// var allowlist = ['http://localhost:2000'];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
