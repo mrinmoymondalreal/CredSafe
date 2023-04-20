@@ -28,7 +28,7 @@
             height: 500px;
             background: #fff;
             border-radius: 10px;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -87,6 +87,7 @@
   function initApp(tok){
     token = tok;
     socket = io(conn);
+    document.querySelector(".bg_credsafe").display = "flex";
     console.log(!isDef(getDeviceID()));
     !isDef(getDeviceID()) ? socket.emit("generate_id", { token: tok }) : join_room(tok);
     socket.on("generate_id", (d)=>{
