@@ -1,10 +1,11 @@
-require('dotenv').config()
+// require('dotenv').config()
 
 // Libraries
 const express = require("express");
 const bodyParser = require('body-parser');
 const bcrypt = require("bcrypt");
 const { Server } = require("socket.io");
+const path = require('path');
 // const jwt = require("jsonwebtoken");
 // const { v4 } = require('uuid');
 const http = require('http');
@@ -18,7 +19,8 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
 
-var allowlist = JSON.parse(process.env.ALLOW_LIST);
+// var allowlist = JSON.parse(process.env.ALLOW_LIST);
+var allowlist = ['http://localhost:2000'];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
@@ -30,9 +32,7 @@ var corsOptionsDelegate = function (req, callback) {
 }
 
 // app.use(require('cors')(corsOptionsDelegate));
-app.use(require('cors')({
-  origin: "*"
-}));
+app.use(require('cors')(corsOptionsDelegate));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -49,7 +49,7 @@ app.post("/reWeb", async (req, res)=>{
   }
 });
 
-app.get("/credsafe_script", async (req, res)=>{
+app.get("/credsafe_script", (req, res)=>{
   res.sendFile(path.join(__dirname, "script.credsafe.js"));
 });
 
