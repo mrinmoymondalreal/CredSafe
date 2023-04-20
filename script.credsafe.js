@@ -78,7 +78,7 @@
         </div>
     </div>
 </div>`;
-    document.body.insertBefore(script, document.querySelector("script"));
+    document.body.insertBefore(script, document.body.lastElementChild);
   }
   function isDef(a){
     return !(a == null || a == undefined);
