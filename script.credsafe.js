@@ -28,7 +28,7 @@
             height: 500px;
             background: #fff;
             border-radius: 10px;
-            display: none;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
