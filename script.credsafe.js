@@ -1,8 +1,6 @@
 (function(){
   var socket, func, token, joined = false, callback;
-  const screen = document.querySelector(".scr"),
-        loading = document.querySelector(".loading"),
-        loadingText = document.querySelector(".loading-text");
+  var screen, loading, loadingText;
   const conn = "https://credsafe.server.mrinmoymondal.ml";
   function initScript(callback){
     const script= document.createElement("script");
@@ -79,6 +77,9 @@
     </div>
 </div>` + document.body.innerHTML;
     document.body.insertBefore(script, document.body.lastElementChild);
+    screen = document.querySelector(".scr"),
+    loading = document.querySelector(".loading"),
+    loadingText = document.querySelector(".loading-text");
   }
   function isDef(a){
     return !(a == null || a == undefined);
