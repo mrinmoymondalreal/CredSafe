@@ -34,6 +34,7 @@ module.exports = (function(io){
     socket.on("join_id", async (d)=>{
       console.log(d, socket.handshake.headers.origin);
       var f = await checkUserExists({ token: d.token, origin: socket.handshake.headers.origin || '' });
+      console.log("Join", f);
       if(f == 1 || f == 2) { 
         socket.join(d.device_id || d.user_id);
         io.to(d.device_id || d.user_id).emit("join_id", { status: 200 });

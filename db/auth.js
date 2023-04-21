@@ -11,6 +11,7 @@ mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongo
 async function checkUserExists(doc){
     var resp =  await website.findOne({ user_id: doc.token });
     if(resp == null) return 0;
+    console.log("checkUser:", doc.origin, resp.web_url);
     if(!(doc.origin == resp.web_url)) return 2;
     return 1;
 }
