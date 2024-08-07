@@ -19,15 +19,11 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const server = http.createServer(app);
 
-var allowlist = JSON.parse(process.env.ALLOW_LIST);
+var allowlist = [];
 // var allowlist = ['http://localhost:2000'];
 var corsOptionsDelegate = function (req, callback) {
-  var corsOptions;
-  if (allowlist.indexOf(req.header('Origin')) !== -1) {
     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false } // disable CORS for this request
-  }
+ 
   callback(null, corsOptions) // callback expects two parameters: error and options
 }
 

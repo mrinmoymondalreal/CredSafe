@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 // const web = mongoose.model('website');
 const User = require("../models/Users");
 
-mongoose.connect('mongodb+srv://class-user:wZpqcBG9OO2FXAHl@cluster0.78cec.mongodb.net/credsafe');
+mongoose.connect('mongodb+srv://themirnmoymondal:gitjS9nRLieM4F7T@urlshortner.9clzrvv.mongodb.net/?retryWrites=true&w=majority&appName=URLShortner');
 
 function reWeb(doc){
     // doc = { web_name, password, username, password, web_url }
